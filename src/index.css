@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 97%;
+    --foreground: 222 28% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 28% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 28% 14%;
+
+    --primary: 221 36% 24%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 199 83% 38%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 24% 92%;
+    --muted-foreground: 215 14% 38%;
+
+    --accent: 210 20% 90%;
+    --accent-foreground: 222 28% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 20% 84%;
+    --input: 214 20% 84%;
+    --ring: 199 83% 38%;
+
+    --radius: 0.875rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+
+    --gradient-page: linear-gradient(180deg, hsl(210 42% 99%), hsl(210 36% 95%));
+    --gradient-surface: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 96%));
+    --gradient-hero: linear-gradient(120deg, hsl(220 34% 20% / 0.84), hsl(205 76% 26% / 0.62));
+    --shadow-card: 0 14px 28px hsl(220 20% 15% / 0.06);
+    --shadow-card-hover: 0 20px 40px hsl(220 20% 15% / 0.11);
+  }
+
+  .dark {
+    --background: 222 28% 8%;
+    --foreground: 210 20% 95%;
+    --card: 221 22% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 221 22% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 205 82% 56%;
+    --primary-foreground: 222 28% 12%;
+    --secondary: 221 36% 24%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 221 16% 18%;
+    --muted-foreground: 212 14% 72%;
+    --accent: 221 16% 18%;
+    --accent-foreground: 210 20% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 14% 22%;
+    --input: 220 14% 22%;
+    --ring: 205 82% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background-image: var(--gradient-page);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply min-h-screen text-foreground;
+  }
+
+  .page-main {
+    @apply px-4 pb-16 pt-24 md:pb-20 md:pt-28;
+  }
+
+  .section-shell {
+    @apply rounded-2xl border border-border bg-card p-6 md:p-8;
+    box-shadow: var(--shadow-card);
+  }
+
+  .section-kicker {
+    @apply mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-secondary;
+  }
+
+  .page-title {
+    @apply mb-4 text-3xl font-semibold md:text-5xl;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold md:text-3xl;
+  }
+
+  .subtle-copy {
+    @apply text-base text-muted-foreground md:text-lg;
+  }
+
+  .metric-chip {
+    @apply flex items-center gap-2 rounded-lg border border-border bg-muted/40 px-3 py-2 text-sm text-muted-foreground;
+  }
+
+  .tour-card {
+    @apply rounded-2xl border border-border bg-card p-5 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .tour-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .route-section {
+    @apply rounded-2xl border border-border bg-card p-5;
+    box-shadow: var(--shadow-card);
+  }
+
+  .route-item {
+    @apply flex items-center gap-3 rounded-lg border border-border bg-muted/35 px-3 py-2 text-sm text-foreground md:text-base;
+  }
+
+  .cta-button {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors duration-200 hover:bg-primary/90;
+  }
+}
